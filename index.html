@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Memdex — мемы для крутых</title>
+  <meta name="description" content="Memdex — архив и сообщество мемов. Топ мемов недели, популярные категории, статистика сообщества. Сохраняй, делись и загружай свои мемы.">
+  <meta name="theme-color" content="#0a0a0a">
+  <!-- TODO: замените на реальный домен перед публикацией -->
+  <link rel="canonical" href="https://memdex.ru/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Memdex">
+  <meta property="og:title" content="Memdex — мемы для крутых">
+  <meta property="og:description" content="Топ мемов недели, популярные категории и живое сообщество. Сохраняй, делись и загружай свои мемы.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://memdex.ru/">
+  <meta property="og:image" content="https://memdex.ru/og-cover.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Memdex — мемы для крутых">
+  <meta name="twitter:description" content="Топ мемов недели, популярные категории и живое сообщество.">
+  <meta name="twitter:image" content="https://memdex.ru/og-cover.jpg">
+
+  <!-- Структурированные данные -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Memdex",
+    "url": "https://memdex.ru/",
+    "description": "Архив и сообщество мемов: топ недели, категории, лайки и загрузки.",
+    "inLanguage": "ru-RU"
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💥</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Шапка ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Memdex — на главную">
+        <span class="logo-icon" aria-hidden="true">💥</span>
+        <span>Memdex</span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link">Главная</a></li>
+          <li><a href="#categories" class="nav-link">Категории</a></li>
+          <li><a href="#top" class="nav-link">Топ мемов</a></li>
+          <li><a href="#about" class="nav-link">О проекте</a></li>
+        </ul>
+      </nav>
+
+      <a href="#upload" class="btn btn-primary header-cta">Загрузить мем</a>
+
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация">
+    <a href="#" class="nav-link">Главная</a>
+    <a href="#categories" class="nav-link">Категории</a>
+    <a href="#top" class="nav-link">Топ мемов</a>
+    <a href="#about" class="nav-link">О проекте</a>
+    <a href="#upload" class="btn btn-primary">Загрузить мем</a>
+  </nav>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-spark">🔥</div>
+        <div class="hero-spark">✨</div>
+        <div class="hero-spark">💫</div>
+        <div class="hero-spark">⭐</div>
+        <div class="hero-spark">🔥</div>
+      </div>
+
+      <div class="container hero-inner">
+        <span class="hero-badge">
+          <span class="dot" aria-hidden="true"></span>
+          Выпуск 07 // Коллективный разум
+        </span>
+
+        <h1>
+          Memdex
+          <span class="hero-tagline">для нишевых ларперов</span>
+        </h1>
+
+        <div class="hero-characters" aria-hidden="true">
+          <span class="hero-char">😂</span>
+          <span class="hero-char">🐱</span>
+          <span class="hero-char">💼</span>
+          <span class="hero-char">🎮</span>
+          <span class="hero-char">🍕</span>
+          <span class="hero-char">🤡</span>
+        </div>
+
+        <p class="hero-subtitle">
+          Создаём магический мир мемов для ребёнка внутри каждого из нас.
+          Пиксельные, классические и свежие — сохраняй, делись и поднимай настроение.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#top" class="btn btn-primary">🔍 Искать мем</a>
+          <a href="#randomMeme" class="btn btn-secondary" id="randomMemeBtn">🎲 Случайный мем</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Статистика ===== -->
+    <section class="section" aria-label="Статистика">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <div class="section-label">// Статистика</div>
+              <h2 class="section-title">Цифры архива</h2>
+            </div>
+            <p class="section-subtitle">Живая статистика сообщества</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">📚</span>
+              <div class="stat-value">12 480</div>
+              <div class="stat-label">Мемов</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">🏷️</span>
+              <div class="stat-value">24</div>
+              <div class="stat-label">Категории</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">👥</span>
+              <div class="stat-value">8 200</div>
+              <div class="stat-label">Пользователей</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">❤️</span>
+              <div class="stat-value">156K</div>
+              <div class="stat-label">Лайков</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Популярные категории ===== -->
+    <section class="section" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <div class="section-label">// Раздел 01</div>
+              <h2 class="section-title" id="categories-title">Популярные категории</h2>
+            </div>
+            <p class="section-subtitle">Выбери свою любимую тему</p>
+          </div>
+
+          <div class="categories-grid">
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">😂</span>
+              <div class="category-name">Классика</div>
+              <div class="category-count">2 340 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">🐱</span>
+              <div class="category-name">Коты</div>
+              <div class="category-count">1 890 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">🐶</span>
+              <div class="category-name">Собаки</div>
+              <div class="category-count">1 560 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">💼</span>
+              <div class="category-name">Работа</div>
+              <div class="category-count">1 230 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">🎮</span>
+              <div class="category-name">Игры</div>
+              <div class="category-count">980 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">🎓</span>
+              <div class="category-name">Школа</div>
+              <div class="category-count">870 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">🍕</span>
+              <div class="category-name">Еда</div>
+              <div class="category-count">760 мемов</div>
+            </div>
+            <div class="category-card">
+              <span class="category-emoji" aria-hidden="true">🤡</span>
+              <div class="category-name">Рандом</div>
+              <div class="category-count">1 420 мемов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Топ мемов недели ===== -->
+    <section class="section" id="top" aria-labelledby="top-title">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <div class="section-label">// Раздел 02</div>
+              <h2 class="section-title" id="top-title">Топ мемов недели</h2>
+            </div>
+            <p class="section-subtitle">Самые залайканные мемы за 7 дней</p>
+          </div>
+
+          <div class="memes-grid">
+            <article class="meme-card">
+              <div class="meme-image meme-image-1">
+                <img
+                  src="images.jpg"
+                  alt="Верити"
+                  class="meme-img"
+                  width="735"
+                  height="731"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                >
+              </div>
+              <div class="meme-body">
+                <h3 class="meme-title">Верити</h3>
+                <div class="meme-tags">
+                  <span class="meme-tag">#верити</span>
+                  <span class="meme-tag">#мем</span>
+                </div>
+                <div class="meme-footer">
+                  <span class="meme-likes"><span class="heart" aria-hidden="true">❤️</span> 4 821</span>
+                  <span class="meme-share" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="meme-card">
+              <div class="meme-image meme-image-2">
+                <img
+                  src="Иркутск.jpg"
+                  alt="Иркутская чума"
+                  class="meme-img"
+                  width="736"
+                  height="1308"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="meme-body">
+                <h3 class="meme-title">Иркутская чума</h3>
+                <div class="meme-tags">
+                  <span class="meme-tag">#иркутск</span>
+                  <span class="meme-tag">#чума</span>
+                </div>
+                <div class="meme-footer">
+                  <span class="meme-likes"><span class="heart" aria-hidden="true">❤️</span> 3 947</span>
+                  <span class="meme-share" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="meme-card">
+              <div class="meme-image meme-image-3">
+                <img
+                  src="1.jpg"
+                  alt="Мелстрой"
+                  class="meme-img"
+                  width="721"
+                  height="960"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="meme-body">
+                <h3 class="meme-title">Мелстрой</h3>
+                <div class="meme-tags">
+                  <span class="meme-tag">#мелстрой</span>
+                  <span class="meme-tag">#стройка</span>
+                </div>
+                <div class="meme-footer">
+                  <span class="meme-likes"><span class="heart" aria-hidden="true">❤️</span> 3 512</span>
+                  <span class="meme-share" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="meme-card">
+              <div class="meme-image meme-image-4">
+                <img
+                  src="Джиган.jpg"
+                  alt="Джиган"
+                  class="meme-img"
+                  width="736"
+                  height="920"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="meme-body">
+                <h3 class="meme-title">Джиган</h3>
+                <div class="meme-tags">
+                  <span class="meme-tag">#джиган</span>
+                  <span class="meme-tag">#рэп</span>
+                </div>
+                <div class="meme-footer">
+                  <span class="meme-likes"><span class="heart" aria-hidden="true">❤️</span> 3 128</span>
+                  <span class="meme-share" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="meme-card">
+              <div class="meme-image meme-image-5">
+                <img
+                  src="Photos_vxDL54ayds.png"
+                  alt="Ивангай"
+                  class="meme-img"
+                  width="546"
+                  height="327"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="meme-body">
+                <h3 class="meme-title">Ивангай</h3>
+                <div class="meme-tags">
+                  <span class="meme-tag">#ивангай</span>
+                  <span class="meme-tag">#ютуб</span>
+                </div>
+                <div class="meme-footer">
+                  <span class="meme-likes"><span class="heart" aria-hidden="true">❤️</span> 2 890</span>
+                  <span class="meme-share" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="meme-card">
+              <div class="meme-image meme-image-6">
+                <img
+                  src="2.jpg"
+                  alt="Старый бог"
+                  class="meme-img"
+                  width="736"
+                  height="982"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="meme-body">
+                <h3 class="meme-title">Старый бог</h3>
+                <div class="meme-tags">
+                  <span class="meme-tag">#дота 2</span>
+                  <span class="meme-tag">#картинки</span>
+                </div>
+                <div class="meme-footer">
+                  <span class="meme-likes"><span class="heart" aria-hidden="true">❤️</span> 2 456</span>
+                  <span class="meme-share" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Как это работает ===== -->
+    <section class="section" id="about" aria-labelledby="how-title">
+      <div class="container">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <div class="section-label">// Раздел 03</div>
+              <h2 class="section-title" id="how-title">Как это работает</h2>
+            </div>
+            <p class="section-subtitle">Три шага до мемного просветления</p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card" data-step="01">
+              <span class="step-icon" aria-hidden="true">🔍</span>
+              <h3 class="step-title">Найди мем</h3>
+              <p class="step-text">
+                Выбирай категорию или листай ленту — алгоритм подберёт мемы,
+                которые зайдут именно тебе.
+              </p>
+            </div>
+
+            <div class="step-card" data-step="02">
+              <span class="step-icon" aria-hidden="true">❤️</span>
+              <h3 class="step-title">Лайкни и сохрани</h3>
+              <p class="step-text">
+                Понравился мем? Поставь лайк, добавь в избранное или скачай —
+                чтобы потом показать друзьям.
+              </p>
+            </div>
+
+            <div class="step-card" data-step="03">
+              <span class="step-icon" aria-hidden="true">🚀</span>
+              <h3 class="step-title">Поделись с миром</h3>
+              <p class="step-text">
+                Отправляй мемы в чаты, соцсети или загружай свои —
+                становись частью мемного сообщества.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section" id="upload">
+      <div class="container">
+        <div class="cta-box">
+          <span class="cta-emoji" aria-hidden="true">💥</span>
+          <span class="cta-emoji" aria-hidden="true">✏️</span>
+          <span class="cta-emoji" aria-hidden="true">📎</span>
+
+          <div class="cta-content">
+            <h2>Присоединяйся к сообществу мемологов</h2>
+            <p>
+              Получай лучшие мемы недели на почту и загружай свои —
+              самые смешные попадут в топ!
+            </p>
+
+            <form class="cta-form" id="subscribeForm" novalidate>
+              <label for="email" class="visually-hidden">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="cta-input"
+                placeholder="твой@email.com"
+                required
+                autocomplete="email"
+                aria-describedby="formMessage"
+              >
+              <button type="submit" class="btn btn-primary" id="subscribeBtn">Подписаться</button>
+            </form>
+            <p class="form-message" id="formMessage" role="status" aria-live="polite" aria-atomic="true"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Футер ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" aria-label="Memdex — на главную">
+            <span class="logo-icon" aria-hidden="true">💥</span>
+            <span>Memdex</span>
+          </a>
+          <p class="footer-desc">
+            Создаём магический мир мемов для ребёнка внутри каждого из нас.
+            Сохраняй, делись и создавай вместе с нами.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Разделы</h4>
+          <ul class="footer-links">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#top">Топ мемов</a></li>
+            <li><a href="#about">О проекте</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Категории</h4>
+          <ul class="footer-links">
+            <li><a href="#categories">Классика</a></li>
+            <li><a href="#categories">Коты</a></li>
+            <li><a href="#categories">Работа</a></li>
+            <li><a href="#categories">Игры</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Соцсети</h4>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Telegram">✈️</a>
+            <a href="#" class="social-link" aria-label="ВКонтакте">💬</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Memdex. Все мемы защищены смехом.</span>
+        <span>Сделано с ❤️ и 💥</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+
+</body>
+</html>
